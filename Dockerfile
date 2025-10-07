@@ -1,6 +1,6 @@
 # Stage 1: Build the application
 # Use the Red Hat UBI SDK image for building
-FROM registry.access.redhat.com/ubi8/dotnet-80-sdk AS build
+FROM registry.access.redhat.com/ubi8/dotnet-90:9.0-1758501291 AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,7 +18,7 @@ RUN dotnet publish -c Release -o out
 
 # Stage 2: Create the final runtime image
 # Use the Red Hat UBI runtime image for the final, smaller image
-FROM registry.access.redhat.com/ubi8/dotnet-80-runtime
+FROM registry.redhat.io/ubi8/dotnet-90-runtime:9.0.9-1758211314
 
 # Set the working directory
 WORKDIR /app
