@@ -34,17 +34,22 @@ The application uses a multi-stage Dockerfile based on the Red Hat UBI .NET imag
 
 1. Build the Image (Setting the Version):
    Use a build argument to dynamically set the application's version tag.
-   \# Set the version environment variable
-   export APP\_VERSION="1.0.0-$(date \+%Y%m%d)"
 
-   \# Build the image, passing the version argument
-   docker build \\
-     \--build-arg APP\_VERSION=${APP\_VERSION} \\
-     \-t todoapi-image:${APP\_VERSION} .
+  ```bash
+   # Set the version environment variable
+   export APP_VERSION="1.0.0-$(date \+%Y%m%d)"
+
+   # Build the image, passing the version argument
+   docker build --build-arg APP\_VERSION=${APP\_VERSION} -t todoapi-image:${APP\_VERSION} .
+
+  ```
 
 2. Run the Container:
    Map the exposed container port 8080 to a host port (e.g., 5000).
-   docker run \-d \-p 5000:8080 \--name todoapi todoapi-image:${APP\_VERSION}
+
+  ```bash
+    docker run -d -p 5000:8080 -name todoapi todoapi-image:${APP\_VERSION}
+  ```
 
 ## **📋 API Endpoints**
 
