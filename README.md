@@ -85,20 +85,9 @@ This endpoint returns a simple JSON status and the application's version, ideal 
 
 **Example Response:**
 
+```json
 {
   "status": "Healthy",
   "version": "1.0.0.0"
 }
-
-### **2\. Prometheus Metrics Endpoint**
-
-This endpoint exposes detailed runtime metrics in a format compatible with Prometheus.
-
-**Endpoint:** GET /metrics
-
-* **Output:** Plain text/Prometheus format.
-* **Content:** Includes metrics like http\_requests\_received\_total, http\_request\_duration\_seconds, etc., allowing monitoring systems to track performance and load.
-
-\# TYPE app\_net\_http\_requests\_received\_total counter
-app\_net\_http\_requests\_received\_total{route="/api/Todo",http\_method="GET"} 1
-...
+```
